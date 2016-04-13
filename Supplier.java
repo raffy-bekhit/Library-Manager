@@ -9,16 +9,19 @@ public class Supplier extends Person{
     {
     super(name,null,email,address);}
 
- public void addBook(String name, String serial,float price,int numberOfCopies){
-       book.add(new Book(name,serial,price,numberOfCopies));
+  public void addBook(Book b){
+       book.add(b);
 
    }
    
-   public void modifyBook(int i,String name, String serial,float price,int numberOfCopies){
-   book.set(i,new Book(name,serial,price,numberOfCopies));
+   public void modifyBook(int i,Book b){
+   book.set(i,b);
    }
   void deleteBook(int i){
     book.remove(i);  
 }
+  void deleteAllBooks(){
+      for(int i=0;i<book.size();i++)
+          deleteBook(i);}
  
 }

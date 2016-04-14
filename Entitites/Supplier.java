@@ -19,14 +19,12 @@ public class Supplier extends Person {
         book.set(i, b);
     }
 
-    void deleteBook(int i) {
+   public void deleteBook(int i) {
         book.remove(i);
     }
 
-    void deleteAllBooks() {
-        for (int i = 0; i < book.size(); i++) {
-            deleteBook(i);
-        }
+   public void deleteAllBooks() {
+        book=new ArrayList<Book>();
     }
 
     @Override

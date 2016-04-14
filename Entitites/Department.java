@@ -38,9 +38,7 @@ public class Department {
     }
 
     void deleteAllBooks() {
-        for (int i = 0; i < book.size(); i++) {
-            deleteBook(i);
-        }
+         book=new ArrayList<Book>();
     }
 
     public void addSupplier(Supplier s) {
@@ -57,9 +55,7 @@ public class Department {
     }
 
     void deleteAllSuppliers() {
-        for (int i = 0; i < supplier.size(); i++) {
-            deleteSupplier(i);
-        }
+        supplier = new ArrayList<Supplier>();
     }
 
     public void addEmployee(Employee e) {
@@ -76,8 +72,8 @@ public class Department {
     }
 
     void deleteAllEmployees() {
-        for (int i = 0; i < employee.size(); i++) {
-            deleteEmployee(i);
-        }
+        employee = new ArrayList<Employee>();
     }
+    public String getName(){return name;}
+    public String getCode(){return code;}
 }

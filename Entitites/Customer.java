@@ -27,9 +27,7 @@ public class Customer extends Person {
     }
 
     void deleteAllBooks() {
-        for (int i = 0; i < book.size(); i++) {
-            deleteBook(i);
-        }
+         book=new ArrayList<Book>();
     }
 
     void setNumberOfBooks(int n) {

@@ -24,9 +24,7 @@ abstract public class Library {
     }
 
     public static void deleteAllDepartments() {
-        for (int i = 0; i < department.size(); i++) {
-            deleteDepartment(i);
-        }
+        department=new ArrayList<Department>();
     }
 
     public static void addCustomer(Customer c) {
@@ -43,9 +41,7 @@ abstract public class Library {
     }
 
     public static void deleteAllCustomers() {
-        for (int i = 0; i < customer.size(); i++) {
-            deleteCustomer(i);
-        }
+        customer = new ArrayList<Customer>();
     }
 
     public static void addSupplier(Supplier s) {
@@ -62,8 +58,7 @@ abstract public class Library {
     }
 
   public static  void  deleteAllSuppliers() {
-        for (int i = 0; i < supplier.size(); i++) {
-            deleteSupplier(i);
+        supplier = new ArrayList<Supplier>();
         }
     }
-}
+

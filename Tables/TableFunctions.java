@@ -17,7 +17,7 @@ public class TableFunctions {
         String[] columnNames = {"Name", "Price", "Serial", "Number of Copies"};
         Object[][] data = new Object[(d.book).size() + 1][4];
         d.addBook(b);
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < (d.book).size(); i++) {
             data[i][0] = (d.book.get(i)).getName();
             data[i][1] = (d.book.get(i)).getPrice();
             data[i][2] = (d.book.get(i)).getSerial();
@@ -33,7 +33,7 @@ public class TableFunctions {
         String[] columnNames = {"Name", "Price", "Serial", "Number of Copies"};
         Object[][] data = new Object[(d.book).size()][4];
 
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < (d.book).size(); i++) {
             data[i][0] = (d.book.get(i)).getName();
             data[i][1] = (d.book.get(i)).getPrice();
             data[i][2] = (d.book.get(i)).getSerial();
@@ -46,7 +46,7 @@ public class TableFunctions {
     public static TabelModel updateSuppliersTable() {
         String[] columnNames = {"Name", "Email", "Address"};
         Object[][] data = new Object[(Library.supplier).size()][3];
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < (Library.supplier).size(); i++) {
             data[i][0] = (Library.supplier.get(i)).getName();
             data[i][1] = (Library.supplier.get(i)).getEmail();
             data[i][2] = (Library.supplier.get(i)).getAddress();
@@ -62,7 +62,7 @@ public class TableFunctions {
         Object[][] data = new Object[(Library.supplier).size() + 1][3];
         Library.addSupplier(s);
 
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < (Library.supplier).size(); i++) {
             data[i][0] = (Library.supplier.get(i)).getName();
             data[i][1] = (Library.supplier.get(i)).getEmail();
             data[i][2] = (Library.supplier.get(i)).getAddress();
@@ -72,4 +72,63 @@ public class TableFunctions {
         return model;
 
     }
+
+    public static TabelModel updateBookofSuppTable(Supplier s, Book b) {
+        String[] columnNames = {"Name", "Price", "Serial"};
+        Object[][] data = new Object[(s.book).size() + 1][3];
+        s.addBook(b);
+        for (int i = 0; i < (s.book).size(); i++) {
+            data[i][0] = (s.book.get(i)).getName();
+            data[i][1] = (s.book.get(i)).getPrice();
+            data[i][2] = (s.book.get(i)).getSerial();
+
+        }
+        TabelModel model = new TabelModel(data, columnNames);
+        return model;
+
+    }
+
+    public static TabelModel updateBookofSuppTable(Supplier s) {
+        String[] columnNames = {"Name", "Price", "Serial"};
+        Object[][] data = new Object[(s.book).size()][3];
+
+        for (int i = 0; i < (s.book).size(); i++) {
+            data[i][0] = (s.book.get(i)).getName();
+            data[i][1] = (s.book.get(i)).getPrice();
+            data[i][2] = (s.book.get(i)).getSerial();
+
+        }
+        TabelModel model = new TabelModel(data, columnNames);
+        return model;
+    }
+
+    public static TabelModel updateDepartmentsTable() {
+        String[] columnNames = {"Name", "Code"};
+        Object[][] data = new Object[Library.department.size()][2];
+
+        for (int i = 0; i < Library.department.size(); i++) {
+            data[i][0] = (Library.department.get(i)).getName();
+            data[i][1] = (Library.department.get(i)).getCode();
+
+        }
+        TabelModel model = new TabelModel(data, columnNames);
+        return model;
+
+    }
+
+    public static TabelModel updateDepartmentsTable(Department d) {
+        String[] columnNames = {"Name", "Code"};
+        Object[][] data = new Object[Library.department.size() + 1][2];
+        Library.department.add(d);
+
+        for (int i = 0; i < Library.department.size(); i++) {
+            data[i][0] = (Library.department.get(i)).getName();
+            data[i][1] = (Library.department.get(i)).getCode();
+
+        }
+        TabelModel model = new TabelModel(data, columnNames);
+        return model;
+
+    }
+
 }

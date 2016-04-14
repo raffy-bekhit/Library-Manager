@@ -48,6 +48,7 @@ public class Suppliers extends javax.swing.JFrame {
         emailField = new javax.swing.JTextField();
         addressField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
+        openButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +107,13 @@ public class Suppliers extends javax.swing.JFrame {
             }
         });
 
+        openButton.setText("Open");
+        openButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,19 +124,25 @@ public class Suppliers extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(addBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)
-                                .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(saveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 191, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(addBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(45, 45, 45)
+                                        .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(36, 36, 36)
+                                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 191, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(saveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(openButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -146,7 +160,9 @@ public class Suppliers extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(deleteButton)
                 .addGap(58, 58, 58)
-                .addComponent(saveButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveButton1)
+                    .addComponent(openButton))
                 .addGap(35, 35, 35))
         );
 
@@ -173,14 +189,14 @@ public class Suppliers extends javax.swing.JFrame {
 
     private void saveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton1ActionPerformed
 
-        Supplier s;
+        Supplier s=null;
 
         String name;
         String email;
         String address;
         Library.deleteAllSuppliers();
 
-        for (int i = 0; i < jTable1.getRowCount(); i++) {
+        for (int i = 0; i <jTable1.getRowCount();  i++) {
 
             name = (String) jTable1.getValueAt(i, 0);
             email = (String) jTable1.getValueAt(i, 1);
@@ -190,8 +206,8 @@ public class Suppliers extends javax.swing.JFrame {
             Library.addSupplier(s);
 
         }
+        if(s!=null) updateTable();
 
-        updateTable();
 
     }//GEN-LAST:event_saveButton1ActionPerformed
 
@@ -228,6 +244,11 @@ public class Suppliers extends javax.swing.JFrame {
         saveButton.setVisible(false);
 
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void openButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openButtonActionPerformed
+        BooksOfSupplier booksOfSupplier = new BooksOfSupplier(jTable1.getSelectedRow());
+        booksOfSupplier.setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_openButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,6 +293,7 @@ public class Suppliers extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameField;
+    private javax.swing.JButton openButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton saveButton1;
     // End of variables declaration//GEN-END:variables

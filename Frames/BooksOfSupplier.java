@@ -12,6 +12,8 @@ public class BooksOfSupplier extends javax.swing.JFrame {
 
     public BooksOfSupplier(int i) {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
         this.i = i;
         s = Library.supplier.get(i);
         nameField.setVisible(false);
@@ -19,8 +21,16 @@ public class BooksOfSupplier extends javax.swing.JFrame {
         serialField.setVisible(false);
 
         saveButton.setVisible(false);
+        filllabel.setVisible(false);
 
+        namelabel.setVisible(false);
+        pricelabel.setVisible(false);
+        pricelabel1.setVisible(false);
+        seriallabel.setVisible(false);
+
+        deletelabel.setVisible(false);
         saveButton1.setVisible(true);
+        savelabel.setVisible(true);
 
         updateTable();
 
@@ -52,17 +62,65 @@ public class BooksOfSupplier extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        deleteButton = new javax.swing.JButton();
+        saveButton1 = new javax.swing.JButton();
         addBookButton = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
         priceField = new javax.swing.JTextField();
         serialField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        saveButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        Back = new javax.swing.JButton();
+        Home = new javax.swing.JButton();
+        namelabel = new javax.swing.JLabel();
+        pricelabel = new javax.swing.JLabel();
+        seriallabel = new javax.swing.JLabel();
+        savelabel = new javax.swing.JLabel();
+        deletelabel = new javax.swing.JLabel();
+        pricelabel1 = new javax.swing.JLabel();
+        filllabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Add Books To Supplier");
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
+        saveButton1.setText("Save Edits");
+        saveButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButton1ActionPerformed(evt);
+            }
+        });
+
+        addBookButton.setText("Add");
+        addBookButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBookButtonActionPerformed(evt);
+            }
+        });
+
+        nameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldActionPerformed(evt);
+            }
+        });
+
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,82 +143,151 @@ public class BooksOfSupplier extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        addBookButton.setText("Add");
-        addBookButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Add Books To Supplier");
+
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBookButtonActionPerformed(evt);
+                BackActionPerformed(evt);
             }
         });
 
-        nameField.addActionListener(new java.awt.event.ActionListener() {
+        Home.setText("Home");
+        Home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
+                HomeActionPerformed(evt);
             }
         });
 
-        saveButton.setText("Save");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
-            }
-        });
+        namelabel.setText("Name");
 
-        deleteButton.setText("Delete");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
+        pricelabel.setText("Price");
 
-        saveButton1.setText("Save Edits");
-        saveButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButton1ActionPerformed(evt);
-            }
-        });
+        seriallabel.setText("Serial");
+
+        savelabel.setBackground(new java.awt.Color(0, 0, 204));
+        savelabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        savelabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        savelabel.setText("Please save edits ");
+
+        deletelabel.setBackground(new java.awt.Color(255, 51, 51));
+        deletelabel.setForeground(new java.awt.Color(255, 51, 51));
+        deletelabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        deletelabel.setText("*Please select a supplier from the table");
+
+        pricelabel1.setBackground(new java.awt.Color(255, 51, 51));
+        pricelabel1.setForeground(new java.awt.Color(255, 0, 0));
+        pricelabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pricelabel1.setText("*Please enter a price number");
+
+        filllabel.setBackground(new java.awt.Color(255, 51, 51));
+        filllabel.setForeground(new java.awt.Color(255, 0, 0));
+        filllabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        filllabel.setText("*Please Fill All Fields");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(pricelabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(saveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(deletelabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(savelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(namelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(pricelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(priceField)
+                                        .addGap(25, 25, 25))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(206, 206, 206)
+                                .addComponent(Home, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 20, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(seriallabel, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 21, Short.MAX_VALUE))
+                            .addComponent(serialField, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap())
+                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filllabel, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(218, 218, 218)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(namelabel)
+                    .addComponent(pricelabel)
+                    .addComponent(seriallabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(serialField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBookButton)
+                    .addComponent(saveButton)
+                    .addComponent(pricelabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(saveButton1)
+                            .addComponent(savelabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(filllabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deletelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Home, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(addBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)
-                                .addComponent(serialField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(saveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 43, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addBookButton)
-                    .addComponent(serialField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveButton))
-                .addGap(72, 72, 72)
-                .addComponent(deleteButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(saveButton1)
-                .addGap(35, 35, 35))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -171,6 +298,9 @@ public class BooksOfSupplier extends javax.swing.JFrame {
         nameField.setVisible(true);
         priceField.setVisible(true);
         serialField.setVisible(true);
+        namelabel.setVisible(true);
+        pricelabel.setVisible(true);
+        seriallabel.setVisible(true);
 
         saveButton.setVisible(true);
 
@@ -183,34 +313,51 @@ public class BooksOfSupplier extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         Book b;
+        float price;
         String name = nameField.getText();
         String Strprice = priceField.getText();
         String serial = serialField.getText();
+        if (name == null || name.equals("") || serial == null || serial.equals("") || Strprice == null || Strprice.equals("")) {
+            filllabel.setVisible(true);
+        } else if (Suppliers.check(Strprice)) {
+            price = Float.parseFloat(Strprice);
+            b = new Book(name, serial, price);
+            updateTable(b);
+            nameField.setText("");
+            priceField.setText("");
+            serialField.setText("");
+            pricelabel1.setVisible(false);
+            nameField.setVisible(false);
+            priceField.setVisible(false);
+            serialField.setVisible(false);
 
-        float price = Float.parseFloat(Strprice);
+            namelabel.setVisible(false);
+            pricelabel.setVisible(false);
+            seriallabel.setVisible(false);
 
-        b = new Book(name, serial, price);
-        updateTable(b);
+            deletelabel.setVisible(false);
+            saveButton.setVisible(false);
+            filllabel.setVisible(false);
 
-        nameField.setText("");
-        priceField.setText("");
-        serialField.setText("");
-
-        nameField.setVisible(false);
-        priceField.setVisible(false);
-        serialField.setVisible(false);
-
-        saveButton.setVisible(false);
+        } else {
+            pricelabel1.setVisible(true);
+        }
 
 
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        int i = jTable1.getSelectedRow();
+        int i = -1;
+        i = jTable1.getSelectedRow();
+
         if (i >= 0) {
             s.deleteBook(i);
             updateTable();
+            deletelabel.setVisible(false);
+        } else {
+            deletelabel.setVisible(true);
         }
+
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void saveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton1ActionPerformed
@@ -234,24 +381,80 @@ public class BooksOfSupplier extends javax.swing.JFrame {
             s.addBook(b);
 
         }
-        if(b!=null) updateTable();
+        if (b != null) {
+            updateTable();
+        }
 
 
     }//GEN-LAST:event_saveButton1ActionPerformed
+
+    private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
+        nameField.setVisible(false);
+        priceField.setVisible(false);
+        serialField.setVisible(false);
+
+        saveButton.setVisible(false);
+        filllabel.setVisible(false);
+
+        namelabel.setVisible(false);
+        pricelabel.setVisible(false);
+        pricelabel1.setVisible(false);
+        seriallabel.setVisible(false);
+
+        deletelabel.setVisible(false);
+        saveButton1.setVisible(true);
+        savelabel.setVisible(true);
+        Suppliers.h.setVisible(true);
+        dispose();
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_HomeActionPerformed
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        nameField.setVisible(false);
+        priceField.setVisible(false);
+        serialField.setVisible(false);
+
+        saveButton.setVisible(false);
+        filllabel.setVisible(false);
+
+        namelabel.setVisible(false);
+        pricelabel.setVisible(false);
+        pricelabel1.setVisible(false);
+        seriallabel.setVisible(false);
+
+        deletelabel.setVisible(false);
+        saveButton1.setVisible(true);
+        savelabel.setVisible(true);
+        Suppliers.S.setVisible(true);
+        dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_BackActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
+    private javax.swing.JButton Home;
     private javax.swing.JButton addBookButton;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JLabel deletelabel;
+    private javax.swing.JLabel filllabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameField;
+    private javax.swing.JLabel namelabel;
     private javax.swing.JTextField priceField;
+    private javax.swing.JLabel pricelabel;
+    private javax.swing.JLabel pricelabel1;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton saveButton1;
+    private javax.swing.JLabel savelabel;
     private javax.swing.JTextField serialField;
+    private javax.swing.JLabel seriallabel;
     // End of variables declaration//GEN-END:variables
 }

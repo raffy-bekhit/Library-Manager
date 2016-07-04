@@ -33,12 +33,12 @@ public class Department {
         book.set(i, b);
     }
 
-    void deleteBook(int i) {
+    public void deleteBook(int i) {
         book.remove(i);
     }
 
-    void deleteAllBooks() {
-         book=new ArrayList<Book>();
+    public void deleteAllBooks() {
+        book = new ArrayList<Book>();
     }
 
     public void addSupplier(Supplier s) {
@@ -50,11 +50,11 @@ public class Department {
         supplier.set(i, new Supplier(name, email, address));
     }
 
-    void deleteSupplier(int i) {
+    public void deleteSupplier(int i) {
         supplier.remove(i);
     }
 
-    void deleteAllSuppliers() {
+    public void deleteAllSuppliers() {
         supplier = new ArrayList<Supplier>();
     }
 
@@ -67,13 +67,19 @@ public class Department {
         employee.set(i, e);
     }
 
-    void deleteEmployee(int i) {
+    public void deleteEmployee(int i) {
         employee.remove(i);
     }
 
-    void deleteAllEmployees() {
+    public void deleteAllEmployees() {
         employee = new ArrayList<Employee>();
     }
-    public String getName(){return name;}
-    public String getCode(){return code;}
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
 }

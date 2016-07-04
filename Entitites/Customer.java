@@ -1,12 +1,11 @@
 package Entitites;
 
-
 import java.util.ArrayList;
 
 public class Customer extends Person {
 
     int numberOfBooks;
-   public ArrayList<Book> book = new ArrayList<Book>();
+    public ArrayList<Book> book = new ArrayList<Book>();
 
     public Customer(String name, String id, String email, String address, int numberOfBooks) {
         super(name, id, email, address);
@@ -22,19 +21,20 @@ public class Customer extends Person {
         book.set(i, b);
     }
 
-    void deleteBook(int i) {
+    public void deleteBook(int i) {
         book.remove(i);
     }
 
-    void deleteAllBooks() {
-         book=new ArrayList<Book>();
+    public void deleteAllBooks() {
+        book = new ArrayList<Book>();
     }
 
-    void setNumberOfBooks(int n) {
+    public void setNumberOfBooks(int n) {
         this.numberOfBooks = n;
     }
 
-    int getNumberOfBooks() {
+    public int getNumberOfBooks() {
         return numberOfBooks;
     }
+
 }
